@@ -33,8 +33,8 @@ void heapify(treeNode input[])
           satisfied=1;
         }
         else{
-          if((input[j*2+1].freq)<(input[j].freq)&&(input[j*2+2].freq<input[j].freq))
-          {if((input[j*2+1])<input[j*2+2]){
+          if((input[j*2+1].freq)<(input[j].freq)&&(input[j*2+2].freq<input[j].freq)){
+          	if((input[j*2+1].freq)<(input[j*2+2].freq)) {
             treeNode temp=input[j];
             input[j]=input[j*2+1];
             input[j*2+1]=temp;
@@ -47,34 +47,24 @@ void heapify(treeNode input[])
             j=j*2+2;
           }
         }
-        else if((input[j*2+1].freq)<(input[j].freq)&&(input[j*2+2].freq>input[j].freq))
+        else if((input[j*2+1].freq)<(input[j].freq) && (input[j*2+2].freq>input[j].freq))
         {   treeNode temp=input[j];
             input[j]=input[j*2+1];
             input[j*2+1]=temp;
             j=j*2+1;
-
         }
-         
-       else if if((input[j*2+1].freq)>(input[j].freq)&&(input[j*2+2].freq<input[j].freq))
+       else if((input[j*2+1].freq)>(input[j].freq)&&(input[j*2+2].freq<input[j].freq))
           {
             treeNode temp=input[j];
             input[j]=input[j*2+2];
             input[j*2+2]=temp;
             j=j*2+2;
-
           }
         else{
           satisfied=1;
         }
-
-
           }
         }
-
-
-
-
-
       }
     }
 
