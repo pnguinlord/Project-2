@@ -13,25 +13,33 @@ struct treeNode{
   char stored;
 };
 
-void heapify(treeNode minheap[]){
-    for(int i=0;i<ARRAY_SIZE(minheap);i++){
-      if((minheap[i*2+1].freq>minheap[i*2+2].freq)&&(minheap[i*2+1].freq<minheap[i].freq))
+void heapify(treeNode input[]){
+    for(int i=0;i<ARRAY_SIZE(input);i++){
+    	int j=i;
+
+    	while ((input[j]))
+
+
+
+
+
+      if((input[i*2+1].freq>input[i*2+2].freq)&&(input[i*2+1].freq<input[i].freq))
 	{
-	  treeNode temp=minheap[i];
-	  minheap[i]=minheap[i*2+1];
-	  minheap[i*2+1]=temp;
+	  treeNode temp=input[i];
+	  input[i]=input[i*2+1];
+	  input[i*2+1]=temp;
 	}
-      else if((minheap[i*2+2].freq>minheap[i*2+1].freq)&&(minheap[i*2+2].freq<minheap[i].freq))
+      else if((input[i*2+2].freq>input[i*2+1].freq)&&(input[i*2+2].freq<input[i].freq))
 	{
-	  treeNode temp=minheap[i];
-	  minheap[i]=minheap[i*2+2];
-	  minheap[i*2+2]=temp;
+	  treeNode temp=input[i];
+	  input[i]=input[i*2+2];
+	  input[i*2+2]=temp;
 	}
-      else if((minheap[i*2+1].freq==minheap[i*2+2].freq)&&(minheap[i*2+1].freq<minheap[i].freq))
+      else if((input[i*2+1].freq==input[i*2+2].freq)&&(input[i*2+1].freq<input[i].freq))
 	{
-	  treeNode temp=minheap[i];
-	  minheap[i]=minheap[i*2+2];
-	  minheap[i*2+2]=temp;
+	  treeNode temp=input[i];
+	  input[i]=input[i*2+2];
+	  input[i*2+2]=temp;
 	}
       
     }
