@@ -22,6 +22,22 @@ if(node->isleaf==1){
 }
 }
 */
+void printCode(treeNode*node, string code,char comp){
+  treeNode*start=node;
+  if (node->isleaf==0){
+    string b=code.append("0");
+    string c= code.append("1");
+    printCode(node->right, b, comp);
+    printCode(node->left,c,comp);
+
+  }
+  else if(node->isleaf==1){
+    if (comp==node->stored){
+    cout<<code;
+  }
+  }
+  return;
+}
 
 int main()
 { int end=0;
@@ -101,6 +117,16 @@ int main()
  //cout<<root->right->left->left->left->isleaf;
   //string print="";
 //printTree(root,print);
+  for (int i=0; i<str.length();i++)
+{
+
+  string code="";
+  printCode(root, code,str[i]);
+
+
+
+}
+
 
 //cout<<root->right->right->right->right->right->stored;
 //freopen("encoded.txt","r",stdin);
