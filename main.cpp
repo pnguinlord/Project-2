@@ -29,7 +29,7 @@ int main()
   int count=0;
   string str,str2;  
   ifstream input;
-  input.open("input.txt");
+  input.open("plain.input");
   std::getline(input,str);//takes in the string input
   for (int i=0; i<str.length();i++) //iterate through the string 
     {//cout<<str[i]<<endl;
@@ -75,8 +75,7 @@ int main()
         if (i!=26){
           //cout<<char(i+'a');
           minheap[j]->stored=char(i+'a');
-      //cout<<minheap[j]->stored<<" "<<minheap[j]->freq<<endl;
-      
+      //cout<<minheap[j]->stored<<" "<<minheap[j]->freq<<endl;      
       } 
         else if(i==26){
           minheap[j]->stored=char(' ');
@@ -106,7 +105,7 @@ int main()
 //cout<<root->right->right->right->right->right->stored;
 //freopen("encoded.txt","r",stdin);
   ifstream encoded;
-  encoded.open("encoded.txt");
+  encoded.open("encoded.input");
 std::getline(encoded,str2);//takes in the string input
 //string output="";
 treeNode* iterator=root;
