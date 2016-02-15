@@ -7,10 +7,10 @@
 #include "heap.h"
 using namespace std;
 
-treeNode* deleteMin(treeNode*, int);
-void percolateDown(treeNode*, int );
-void insertnode(treeNode*, treeNode*,int );
-void percolateUp(treeNode*, int);
-void makeTrie(treeNode* , int);
+treeNode* deleteMin(treeNode**, int);
+void percolateDown(treeNode**, int );
+void insertnode(treeNode**, treeNode*,int );
+void percolateUp(treeNode**, int);
+treeNode* makeTrie(treeNode** , int);
 
 #endif

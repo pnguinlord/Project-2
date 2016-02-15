@@ -171,30 +171,32 @@ else {
 }
 }
 
-void makeTrie(treeNode* minheap[], int size){
+treeNode* makeTrie(treeNode* minheap[], int size){
   int lastindex=size-1;
 treeNode* first;
 treeNode* second;
+treeNode* trie=new treeNode;
 while(lastindex!=0)
 {
-  treeNode* trie=new treeNode;
+   
   trie->freq=0;
   first=deleteMin(minheap, lastindex);
 
   trie->right=first;
   lastindex--;
-  second=deleteMin(minheap);
+  second=deleteMin(minheap,lastindex);
   trie->left=second;
-  lastindex--;
+  
   trie->freq=trie->left->freq+trie->right->freq;
   insertnode(minheap,trie,lastindex);
-  lastindex++;
+  
 
 
 }
 treeNode* root= new treeNode;
 root->right=first;
 root->left=second;
-root->freq=right->freq+left->freq;
+root->freq=(first->freq)+(second->freq);
+root->stored=NULL;
 
 }

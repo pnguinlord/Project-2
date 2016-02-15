@@ -15,14 +15,14 @@ void heapify(treeNode* input[], int size)
   
   int i;
   for(i=size/2-1;i>=0;i--){ //verify that the minus one is correct
-    cout<<"count:"<<i<<"\n";
+    //cout<<"count:"<<i<<"\n";
       j=i;
       satisfied=0;
       while (satisfied==0){
-        if(j>size/2){
+        if(j>=size/2){
           satisfied=1;
         }
-        if (i*2+2>=size){
+        if (j*2+2>=size){
           if(input[j]->freq>input[j*2+1]->freq){
             
             //temp node for swap
@@ -115,11 +115,11 @@ void heapify(treeNode* input[], int size)
             j=j*2+1;
   */
         }
-       else if((input[j*2+1]->freq)>=(input[j]->freq)&&(input[j*2+2]->freq<input[j]->freq)) // if left>parent and right<parent, swap right with parent
+       else if((input[j*2+1]->freq)>=(input[j]->freq)&&(input[j*2+2]->freq<input[j]->freq)) // if left>=parent and right<parent, swap right with parent
           {
 
             //temp node for swap
-            treeNode* temp = new treeNode();
+            treeNode* temp = new treeNode;
             temp->freq = input[j]->freq;
             temp->stored = input[j]->stored;
 
@@ -144,9 +144,9 @@ void heapify(treeNode* input[], int size)
         }
 
           }
-          if(j>size/2){
+          if(j>=size/2){
           satisfied=1;
-        }
+            }
         }
       }
     }
