@@ -73,33 +73,12 @@ int main()
   heapify(minheap, count);
 
 
-  return 0;
-  /*
-int lastindex=count-1;
-treeNode* first;
-treeNode* second;
-while(lastindex!=0)
-{
-  treeNode* trie=new treeNode();
-  trie->freq=0;
-  first=deletemin(minheap, lastindex);
-
-  trie->right=first;
-  lastindex--;
-  second=deletemin(minheap);
-  trie->left=second;
-  lastindex--;
-  trie->freq=trie->left->freq+trie->right->freq;
-  insertnode(minheap,trie);
-  lastindex++;
+  
+  
 
 
+return 0;
 }
-treeNode* root= new treeNode();
-root->right=first;
-root->left=second;
-root->freq=right->freq+left->freq;
-*/
-}
+
 
 
