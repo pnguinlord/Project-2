@@ -189,6 +189,7 @@ while(lastindex!=0)
   
   trie->freq=trie->left->freq+trie->right->freq;
   insertnode(minheap,trie,lastindex);
+  trie->isleaf=0;
   
 
 

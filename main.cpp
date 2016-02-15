@@ -58,6 +58,7 @@ int main()
       {
     
         minheap[j]=new treeNode();
+        minheap[j]->isleaf=1;
         minheap[j]->freq=freq[i];
         if (i!=26){
           //cout<<char(i+'a');
@@ -82,7 +83,7 @@ int main()
   {
     cout<<minheap[i]->stored<<" "<< minheap[i]->freq;
   }
-  treeNode* root=makeTrie(minheap,count);
+  treeNode* root=minheap[0];
 
 
 
@@ -93,21 +94,19 @@ std::getline(encoded,str2);//takes in the string input
 //string output="";
 treeNode* iterator=root;
 for (int i=0; i<str2.length();i++) //iterate through the string 
-{ //cout<<str2[i];
+{ cout<<str2[i];
   if(str2[i]==0){
     iterator=iterator->right;
   }
   else if(str2[i]==1){
     iterator=iterator->left;
   }
-  /*if((iterator->left==NULL)&&(iterator->right==NULL)){ 
+  if(iterator->isleaf==1){ 
     cout<<iterator->stored;
     iterator=root;
-  }*/
+  }
 
-    if(iterator->stored){
-      cout<<iterator->stored;
-    }
+    
 }
 
 input.close();

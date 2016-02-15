@@ -10,6 +10,7 @@ struct treeNode{
   treeNode* left;
   treeNode* right;
   char stored;
+  int isleaf;
 };
 
 void heapify(treeNode* input[], int size);
