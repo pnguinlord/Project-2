@@ -8,12 +8,24 @@
 #include <fstream> 
 using namespace std;
 
+
+/*void printTree(treeNode* node, string a){
+treeNode*start=node; 
+if (node->isleaf==0){
+  string b=a.append("0");
+  string c=a.append("1");
+  printTree(node->right,b);
+  printTree(node->left,c);
+}
+if(node->isleaf==1){
+  cout<<"code: "<< a<< " stored: "<<node->stored<<endl;
+}
+}
+*/
+
 int main()
-{
-  //freopen("input.txt","r",stdin);     // if you use this line, it merely redirects stdin to input.txt file; simple as that
-  int end=0;
+{ int end=0;
   int freq[27]={0};
-  
   int count=0;
   string str,str2;  
   ifstream input;
@@ -42,8 +54,8 @@ int main()
       
       }
     }
- // cout<<"count: "<<count<<endl;
-  /*for(int i=0;i<27;i++){
+  /*cout<<"count: "<<count<<endl;
+  for(int i=0;i<27;i++){
     
     cout<<freq[i]<<endl;
     } 
@@ -74,40 +86,51 @@ int main()
     }
     
 
-    for(int i=0;i<count;i++)
+  /*  for(int i=0;i<count;i++)
+  {
+    cout<<minheap[i]->stored<<" "<< minheap[i]->freq<<endl;
+  }*/
+  heapify(minheap, count); //order the heap based on freq
+  /* for(int i=0;i<count;i++)
   {
     cout<<minheap[i]->stored<<" "<< minheap[i]->freq<<endl;
   }
-  heapify(minheap, count); //order the heap based on freq
-   for(int i=0;i<count;i++)
-  {
-    cout<<minheap[i]->stored<<" "<< minheap[i]->freq;
-  }
-  treeNode* root=minheap[0];
+*/
 
+  
+  treeNode* root=makeTrie(minheap, count);
+ //cout<<root->right->left->left->left->isleaf;
+  //string print="";
+//printTree(root,print);
 
-
+//cout<<root->right->right->right->right->right->stored;
 //freopen("encoded.txt","r",stdin);
   ifstream encoded;
   encoded.open("encoded.txt");
 std::getline(encoded,str2);//takes in the string input
 //string output="";
 treeNode* iterator=root;
+//cout<<str2.length();
 for (int i=0; i<str2.length();i++) //iterate through the string 
-{ cout<<str2[i];
-  if(str2[i]==0){
+{ //cout<<str2[i];
+
+  if(str2[i]=='0'){
     iterator=iterator->right;
+    //cout<<"RIGHT";
   }
-  else if(str2[i]==1){
+  else if(str2[i]=='1'){
     iterator=iterator->left;
+    //cout<<"LEFT";
   }
   if(iterator->isleaf==1){ 
+
     cout<<iterator->stored;
     iterator=root;
   }
 
     
 }
+cout<<endl;
 
 input.close();
 encoded.close();

@@ -22,8 +22,8 @@ void heapify(treeNode* input[], int size)
         if(j>=size/2){
           satisfied=1;
         }
-        if (j*2+2>=size){
-          if(input[j]->freq>input[j*2+1]->freq){
+        if (j*2+2>=size){ //if j is the node with only 1 child. 
+          if(input[j]->freq>input[j*2+1]->freq){  //if that child is larger
             
             //temp node for swap
             treeNode* temp = new treeNode();
@@ -92,7 +92,7 @@ void heapify(treeNode* input[], int size)
             */
           }
         }
-        else if((input[j*2+1]->freq)<(input[j]->freq) && (input[j*2+2]->freq>=input[j]->freq)) {   // if left<parent and right>parent, swap left with parent
+        else if((input[j*2+1]->freq)<(input[j]->freq) && (input[j*2+2]->freq>=input[j]->freq)) {   // if left<parent and right>=parent, swap left with parent
 
             //temp node for swap
             treeNode* temp = new treeNode();
