@@ -21,11 +21,11 @@ treeNode* deleteMin(treeNode* tree[], int size){
 
   //lowest rightest node is virtually deleted outside of this function with lastIndex--
   //percolate top node down to satistfy tree
-//  percolateDown(treeNode* tree, size-1);
+  percolateDown(tree, size-1);
 
   return temp;
 }
-void percolateDown(treeNode*tree[], int size){
+void percolateDown(treeNode* tree[], int size){
 int satisfied = 0;
 
   int j=0;
@@ -34,36 +34,36 @@ int satisfied = 0;
       satisfied=1;
     }
     if (j*2+2>=size){
-      if(input[j]->freq>input[j*2+1]->freq){
+      if(tree[j]->freq>tree[j*2+1]->freq){
         
         //temp node for swap
         treeNode* temp = new treeNode();
-        temp->freq = input[j]->freq;
-        temp->stored = input[j]->stored;
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
 
-        input[j]->freq = input[j*2+1]->freq;
-        input[j]->stored = input[j*2+1]->stored;
+        tree[j]->freq = tree[j*2+1]->freq;
+        tree[j]->stored = tree[j*2+1]->stored;
         
-        input[j*2+1]->freq=temp->freq;
-        input[j*2+1]->stored=temp->stored;
+        tree[j*2+1]->freq=temp->freq;
+        tree[j*2+1]->stored=temp->stored;
 
       }
       satisfied=1;
     }
     else{
-      if((input[j*2+1]->freq)<(input[j]->freq)&&(input[j*2+2]->freq<input[j]->freq)){ // if both left and right children are less than parent
-        if((input[j*2+1]->freq)<(input[j*2+2]->freq)) { // if left child is less than right, swap left with parent
+      if((tree[j*2+1]->freq)<(tree[j]->freq)&&(tree[j*2+2]->freq<tree[j]->freq)){ // if both left and right children are less than parent
+        if((tree[j*2+1]->freq)<(tree[j*2+2]->freq)) { // if left child is less than right, swap left with parent
         
         //temp node for swap
         treeNode* temp= new treeNode;
-        temp->freq = input[j]->freq;
-        temp->stored = input[j]->stored;
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
 
-        input[j]->freq = input[j*2+1]->freq;
-        input[j]->stored = input[j*2+1]->stored;
+        tree[j]->freq = tree[j*2+1]->freq;
+        tree[j]->stored = tree[j*2+1]->stored;
         
-        input[j*2+1]->freq=temp->freq;
-        input[j*2+1]->stored=temp->stored;
+        tree[j*2+1]->freq=temp->freq;
+        tree[j*2+1]->stored=temp->stored;
 
         j=j*2+1;
 
@@ -72,48 +72,48 @@ int satisfied = 0;
 
         //temp node for swap
         treeNode* temp = new treeNode();
-        temp->freq = input[j]->freq;
-        temp->stored = input[j]->stored;
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
 
-        input[j]->freq = input[j*2+2]->freq;
-        input[j]->stored = input[j*2+2]->stored;
+        tree[j]->freq = tree[j*2+2]->freq;
+        tree[j]->stored = tree[j*2+2]->stored;
         
-        input[j*2+2]->freq=temp->freq;
-        input[j*2+2]->stored=temp->stored;
+        tree[j*2+2]->freq=temp->freq;
+        tree[j*2+2]->stored=temp->stored;
 
      j=j*2+2;
         
       }
     }
-    else if((input[j*2+1]->freq)<(input[j]->freq) && (input[j*2+2]->freq>=input[j]->freq)) {   // if left<parent and right>parent, swap left with parent
+    else if((tree[j*2+1]->freq)<(tree[j]->freq) && (tree[j*2+2]->freq>=tree[j]->freq)) {   // if left<parent and right>parent, swap left with parent
 
         //temp node for swap
         treeNode* temp = new treeNode();
-        temp->freq = input[j]->freq;
-        temp->stored = input[j]->stored;
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
 
-        input[j]->freq = input[j*2+1]->freq;
-        input[j]->stored = input[j*2+1]->stored;
+        tree[j]->freq = tree[j*2+1]->freq;
+        tree[j]->stored = tree[j*2+1]->stored;
         
-        input[j*2+1]->freq=temp->freq;
-        input[j*2+1]->stored=temp->stored;
+        tree[j*2+1]->freq=temp->freq;
+        tree[j*2+1]->stored=temp->stored;
 
         j=j*2+1;
 
     }
-   else if((input[j*2+1]->freq)>=(input[j]->freq)&&(input[j*2+2]->freq<input[j]->freq)) // if left>parent and right<parent, swap right with parent
+   else if((tree[j*2+1]->freq)>=(tree[j]->freq)&&(tree[j*2+2]->freq<tree[j]->freq)) // if left>parent and right<parent, swap right with parent
       {
 
         //temp node for swap
         treeNode* temp = new treeNode();
-        temp->freq = input[j]->freq;
-        temp->stored = input[j]->stored;
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
 
-        input[j]->freq = input[j*2+2]->freq;
-        input[j]->stored = input[j*2+2]->stored;
+        tree[j]->freq = tree[j*2+2]->freq;
+        tree[j]->stored = tree[j*2+2]->stored;
         
-        input[j*2+2]->freq=temp->freq;
-        input[j*2+2]->stored=temp->stored;
+        tree[j*2+2]->freq=temp->freq;
+        tree[j*2+2]->stored=temp->stored;
 
       j=j*2+2;
 
@@ -130,11 +130,45 @@ int satisfied = 0;
 
 }
 
-void insertnode(treeNode* insert[], treeNode*, int lastIndex){
+void insertnode(treeNode* insert[], treeNode* newNode, int lastIndex){
+  insert[lastIndex]= newNode;
+  percolateUp(insert,lastIndex);
+
 
 }
-void percolateUp(treeNode*tree, int size){
+
+
+
+void percolateUp(treeNode* tree[], int size){
+  int satisfied=0;
+
+  int j=size; 
+while (satisfied==0){ //is this still applicable?
+    if(j==0){
+      satisfied=1;
+    }
+    if(tree[j]<tree[(j+1)/2-1]){
+       treeNode* temp = new treeNode();
+        temp->freq = tree[j]->freq;
+        temp->stored = tree[j]->stored;
+
+        tree[j]->freq = tree[(j+1)/2-1]->freq;
+        tree[j]->stored = tree[(j+1)/2-1]->stored;
+        
+        tree[(j+1)/2-1]->freq=temp->freq;
+        tree[(j+1)/2-1]->stored=temp->stored;
+
+      j=(j+1)/2-1;
+
+    }
+
+else {
+  satisfied=1; 
+}
+
+
   
+}
 }
 
 void makeTrie(treeNode* minheap[], int size){
@@ -143,7 +177,7 @@ treeNode* first;
 treeNode* second;
 while(lastindex!=0)
 {
-  treeNode* trie=new treeNode();
+  treeNode* trie=new treeNode;
   trie->freq=0;
   first=deleteMin(minheap, lastindex);
 
@@ -158,7 +192,7 @@ while(lastindex!=0)
 
 
 }
-treeNode* root= new treeNode();
+treeNode* root= new treeNode;
 root->right=first;
 root->left=second;
 root->freq=right->freq+left->freq;

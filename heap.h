@@ -4,7 +4,7 @@
 #include <exception>
 #include <string>
 #include <cstdio>
-
+using namespace std;
 struct treeNode{
   int freq;
   treeNode* left;

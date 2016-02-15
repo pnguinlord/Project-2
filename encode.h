@@ -5,11 +5,12 @@
 #include <string>
 #include <cstdio>
 #include "heap.h"
+using namespace std;
 
-treeNode* deleteMin(treeNode* tree, int size);
-void percolateDown(treeNode*tree, int size);
-void insertnode(treeNode* insert[], treeNode*);
-void percolateUp(treeNode*tree, int size);
-void makeTrie(treeNode* minheap[], int size){
+treeNode* deleteMin(treeNode*, int);
+void percolateDown(treeNode*, int );
+void insertnode(treeNode*, treeNode*,int );
+void percolateUp(treeNode*, int);
+void makeTrie(treeNode* , int);
 
 #endif

@@ -3,13 +3,10 @@
 #include <exception>
 #include <string>
 #include <cstdio>
-
-using namespace std;
-
 #include "heap.h"
 #include "encode.h"
 
-
+using namespace std;
 
 int main()
 {
@@ -72,13 +69,9 @@ int main()
     
   heapify(minheap, count);
 
-
-  
-  
-
-
-return 0;
+  return 0;
 }
+
 
 
 
