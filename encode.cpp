@@ -217,7 +217,7 @@ while (satisfied==0){
     if(j==0){
       satisfied=1;
     }
-    if(tree[j]<tree[(j+1)/2-1]){
+    if(tree[j]->freq<tree[(j+1)/2-1]->freq){
        treeNode* temp = new treeNode();
         temp->freq = tree[j]->freq;
         temp->stored = tree[j]->stored;
@@ -227,9 +227,12 @@ while (satisfied==0){
 
         tree[j]->freq = tree[(j+1)/2-1]->freq;
         tree[j]->stored = tree[(j+1)/2-1]->stored;
-        temp->left= tree[(j+1)/2-1]->left;
-        temp->right=tree[(j+1)/2-1]->right;
-        temp->isleaf=tree[(j+1)/2-1]->isleaf;        
+         tree[j]->left = tree[(j+1)/2-1]->left;
+        tree[j]->right = tree[(j+1)/2-1]->right;
+        tree[j]->isleaf = tree[(j+1)/2-1]->isleaf;
+        //temp->left= tree[(j+1)/2-1]->left;
+        //temp->right=tree[(j+1)/2-1]->right;
+        //temp->isleaf=tree[(j+1)/2-1]->isleaf;        
         tree[(j+1)/2-1]->freq=temp->freq;
         tree[(j+1)/2-1]->stored=temp->stored;
         tree[(j+1)/2-1]->right=temp->right;
@@ -263,7 +266,7 @@ treeNode* second;
 
 while(lastindex!=0)
 {
-   treeNode* trie=new treeNode;
+   treeNode* trie=new treeNode();
 trie->stored=NULL;
 
   trie->freq=0;
